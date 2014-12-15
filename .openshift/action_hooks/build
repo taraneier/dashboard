@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Save the old HOME so we can reset after script.
+# Bower and bower as it is run buy grunt both want
+# to touch .local and .config files in $HOME which
+# isn't writeable on OSE.  So we set $HOME to
+# the REPO_DIR temporarily.
+
+# Install our gems needed for yeomen
+if [ ! -d $OPENSHIFT_DATA_DIR/gems ]; then
+echo "Making Gems dir"
+mkdir $OPENSHIFT_DATA_DIR/gems
+fi
+export GEM_HOME=$OPENSHIFT_DATA_DIR/gems
+if [ `gem list compass -i` == 'false' ]; then
+echo "Install Gems"
+gem install compass
+fi
+
+export PATH=$OPENSHIFT_DATA_DIR/bin:$OPENSHIFT_DATA_DIR/gems/bin:$PATH
+export GEM_HOME=$OPENSHIFT_DATA_DIR/gems
+
+
+OLD_HOME=$HOME
+
+##########
+echo "INFO: Running 'bower install'"
+cd $OPENSHIFT_REPO_DIR
+export HOME=$OPENSHIFT_REPO_DIR
+node_modules/bower/bin/bower install
+
+##########
+echo "INFO: Running 'grunt build'"
+grunt build
+cd "${OPENSHIFT_REPO_DIR}"; node_modules/grunt-cli/bin/grunt server
+
+#########
+export HOME=$OLD_HOME
+echo "INFO: HOME is $HOME"
