@@ -324,9 +324,10 @@ module.exports = (grunt) ->
 
     grunt.registerTask "serve", (target) ->
         return grunt.task.run(["build", "open", "connect:dist:keepalive"])  if target is "dist"
-        grunt.task.run ["clean:server", "concurrent:server", "open"]
-#        grunt.task.run ["clean:server", "concurrent:server", "connect:livereload", "open", "watch"]
-
+        if process.env.OPENSHIFT_REPO_DIR
+          grunt.task.run ["clean:server", "concurrent:server", "open"]
+        else
+          grunt.task.run ["clean:server", "concurrent:server", "connect:livereload", "open", "watch"]
 
     # grunt.registerTask "lessServer", (target) ->
     #     return grunt.task.run(["lessBuild", "open", "connect:dist:keepalive"])  if target is "dist"

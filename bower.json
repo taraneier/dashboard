@@ -32,7 +32,8 @@
     "chartjs": "1.0.1-beta.3",
     "color": "~2.4.1",
     "flot.curvedlines": "~0.6.4",
-    "angular-loading-bar": "~0.6.0"
+    "angular-loading-bar": "~0.6.0",
+    "ionicons": "~2.0.0"
   },
   "devDependencies": {
     "holderjs": "~2.3.1",
