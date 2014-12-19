@@ -38,16 +38,3 @@
     };
 }])
 }).call(this);
-
-//app.factory('flockService', ['$rootScope', function($rootScope) {
-//    var flock;
-//    return {
-//        setCurrentFlock : function(current) {
-//            flock = current;
-//            $rootScope.$broadcast('flockChanged');
-//        },
-//        getCurrentFlock : function () {
-//            return flock;
-//        }
-//    };
-//}])

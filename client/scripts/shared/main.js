@@ -5,8 +5,8 @@
       var $window;
       $window = $(window);
       $scope.main = {
-        brand: 'Simplify',
-        name: 'Lisa Doe'
+        brand: 'Flock Focus',
+        name: 'Tara Neier'
       };
       $scope.pageTransitionOpts = [
         {
