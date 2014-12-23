@@ -24,6 +24,7 @@ module.exports = (grunt) ->
 
     try
         yeomanConfig.app = require("./bower.json").appPath or yeomanConfig.app
+    grunt.loadNpmTasks('grunt-ng-constant')
     grunt.initConfig
         yeoman: yeomanConfig
         watch:
@@ -287,7 +288,7 @@ module.exports = (grunt) ->
 
 
         concurrent:
-            server: ["coffee:server", "compass:server", "copy:styles"]
+            server: ["coffee:server", "compass:server", "copy:styles", "ngconstant:dist"]
             dist: ["coffee:dist", "compass:dist", "copy:styles", "htmlmin"]
             lessServer: ["coffee:server", "less:server", "copy:styles"]
             lessDist: ["coffee:dist", "less:dist", "copy:styles", "htmlmin"]
@@ -314,6 +315,15 @@ module.exports = (grunt) ->
                         "<%= yeoman.app %>/scripts/**/*.js"
                         "!<%= yeoman.app %>/scripts/vendors/**"
                     ]
+        ngconstant:
+            dist:
+                options:
+                    name: 'config',
+                    dest: '.tmp/scripts/shared/config.js',
+                constants:
+                    apiHost: if (process.env.OPENSHIFT_REPO_DIR) then 'api-flockstats.rhcloud.com' else 'localhost:8080'
+                values:
+                    debug: true
 
     grunt.registerTask "docs", ->
         grunt.task.run ["jade:docs", "connect:docs", "open", "watch"]
@@ -333,7 +343,7 @@ module.exports = (grunt) ->
     #     return grunt.task.run(["lessBuild", "open", "connect:dist:keepalive"])  if target is "dist"
     #     grunt.task.run ["clean:server", "concurrent:lessServer", "connect:livereload", "open", "watch"]
 
-    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:dist", "copy:dist", "cssmin", "concat", "uglify", "usemin"]
+    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:dist", "copy:dist", "cssmin", "concat", "uglify", "usemin", "ngconstant:dist"]
     # grunt.registerTask "lessBuild", ["clean:dist", "useminPrepare", "concurrent:lessDist", "copy:dist", "cssmin", "concat", "uglify", "usemin"]
 
     grunt.registerTask "default", ["server"]

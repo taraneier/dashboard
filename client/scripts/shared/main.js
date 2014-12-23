@@ -74,9 +74,10 @@
         return $scope.taskRemainingCount = count;
       });
     }
-  ]).controller('DashboardCtrl', ['$scope', '$rootScope', '$http', 'flockService',
-                          function($scope,  $rootScope, $http, flockService) {
-        $http.get('http://localhost:8000/api/flocks/1/').success(function(flock){
+  ]).controller('DashboardCtrl', ['$scope', '$rootScope', '$http', 'flockService','apiHost',
+                          function($scope,  $rootScope, $http, flockService, apiHost) {
+//      $http.get('http://'+apiHost+'/api/flocks/1/').success(function(flock){
+        $http.get('http://api-flockstats.rhcloud.com/api/flocks/1/').success(function(flock){
                                   $scope.flock = flock;
                               });
 //        $scope.
