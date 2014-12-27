@@ -305,6 +305,7 @@ module.exports = (grunt) ->
 
         uglify:
             options:
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 mangle: false
                 compress:
                     drop_console: true
@@ -343,7 +344,7 @@ module.exports = (grunt) ->
     #     return grunt.task.run(["lessBuild", "open", "connect:dist:keepalive"])  if target is "dist"
     #     grunt.task.run ["clean:server", "concurrent:lessServer", "connect:livereload", "open", "watch"]
 
-    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:dist", "copy:dist", "cssmin", "concat", "uglify", "usemin"]
+    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:dist", "copy:dist", "cssmin", "concat", "uglify", "usemin", "ngconstant:dist"]
     # grunt.registerTask "lessBuild", ["clean:dist", "useminPrepare", "concurrent:lessDist", "copy:dist", "cssmin", "concat", "uglify", "usemin"]
 
     grunt.registerTask "default", ["server"]

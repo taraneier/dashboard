@@ -1,4 +1,4 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
+#Dashboard
 
-
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+to deploy on OpenShift
+to display stats from Flock monitoring
