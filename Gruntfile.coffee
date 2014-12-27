@@ -26,6 +26,7 @@ module.exports = (grunt) ->
         yeomanConfig.app = require("./bower.json").appPath or yeomanConfig.app
     grunt.loadNpmTasks('grunt-ng-constant')
     grunt.initConfig
+        pkg: grunt.file.readJSON('package.json')
         yeoman: yeomanConfig
         watch:
             coffee:
