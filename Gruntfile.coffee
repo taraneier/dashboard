@@ -259,7 +259,8 @@ module.exports = (grunt) ->
                         "bower_components/weather-icons/css/*"
                         "bower_components/weather-icons/fonts/*"
                         "bower_components/weather-icons/font/*"
-
+                        "bower_components/ionicons/fonts/*"
+                        "bower_components/ionicons/css/*"
                         "fonts/**/*"
                         "i18n/**/*"
                         "images/**/*"
@@ -321,7 +322,7 @@ module.exports = (grunt) ->
             dist:
                 options:
                     name: 'config',
-                    dest: '.tmp/scripts/shared/config.js',
+                    dest: '<%= yeoman.dist %>/scripts/shared/config.js',
                 constants:
                     apiHost: if (process.env.OPENSHIFT_REPO_DIR) then 'api-flockstats.rhcloud.com' else 'localhost:8080'
                 values:

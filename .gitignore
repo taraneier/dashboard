@@ -3,3 +3,4 @@ node_modules
 client/bower_components/*
 .tmp/
 .sass-cache
+dist/
