@@ -324,7 +324,7 @@ module.exports = (grunt) ->
                     name: 'config',
                     dest: '<%= yeoman.app %>/scripts/shared/config.js',
                 constants:
-                    apiHost: if (process.env.OPENSHIFT_REPO_DIR) then 'api-flockstats.rhcloud.com' else 'localhost:8080'
+                    apiHost: if (process.env.OPENSHIFT_REPO_DIR) then 'api-flockstats.rhcloud.com' else 'localhost:8000'
                 values:
                     debug: true
 

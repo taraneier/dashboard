@@ -74,14 +74,21 @@
         return $scope.taskRemainingCount = count;
       });
     }
-  ]).controller('DashboardCtrl', ['$scope', '$rootScope', '$http', 'flockService','apiHost',
-                          function($scope,  $rootScope, $http, flockService, apiHost) {
-//      $http.get('http://'+apiHost+'/api/flocks/1/').success(function(flock){
-        $http.get('http://api-flockstats.rhcloud.com/api/flocks/1/').success(function(flock){
-                                  $scope.flock = flock;
-                              });
-//        $scope.
-      console.log('gerf');
+  ]).controller('DashboardCtrl', ['$scope', 'flockService',
+                          function($scope,  flockService) {
+                            $scope.flock;
+                            $scope.status;
+                            getFlock();
+                            function getFlock() {
+                              flockService.getFlock(1)
+                                  .success(function (custs) {
+                                    $scope.flock = custs;
+                                  })
+                                  .error(function (error) {
+                                    $scope.status = 'Unable to load customer data: ' + error.message;
+                                  })
+                            };
+
   }]);
 
 }).call(this);

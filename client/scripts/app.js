@@ -25,49 +25,17 @@
       });
     }
   ])
-  .factory('flockService', ['$rootScope', function($rootScope) {
-    var flock;
-    return {
-        setCurrentFlock : function(current) {
-            flock = current;
-            $rootScope.$broadcast('flockChanged');
-        },
-        getCurrentFlock : function () {
-            return flock;
-        }
-    };
-}])
 
-  //.factory('flockService', ['$http', function($http) {
-  //  var FLOCK_URL_PATTERN =
-  //      apiHost + '/api/flocks/';
-  //  var currencies = ['USD', 'EUR', 'CNY'];
-  //  var usdToForeignRates = {};
-  //
-  //  var convert = function (amount, inCurr, outCurr) {
-  //    return amount * usdToForeignRates[outCurr] / usdToForeignRates[inCurr];
-  //  };
-  //
-  //  var refresh = function() {
-  //    var url = YAHOO_FINANCE_URL_PATTERN.
-  //               replace('PAIRS', 'USD' + currencies.join('","USD'));
-  //    return $http.jsonp(url).success(function(data) {
-  //      var newUsdToForeignRates = {};
-  //      angular.forEach(data.query.results.rate, function(rate) {
-  //        var currency = rate.id.substring(3,6);
-  //        newUsdToForeignRates[currency] = window.parseFloat(rate.Rate);
-  //      });
-  //      usdToForeignRates = newUsdToForeignRates;
-  //    });
-  //  };
-  //
-  //  refresh();
-  //
-  //  return {
-  //    currencies: currencies,
-  //    convert: convert,
-  //    refresh: refresh
-  //  };
-  //}]);
+  .factory('flockService', ['$http','apiHost', function($http, apiHost){
+       var FLOCK_URL_PATTERN = '//' + apiHost + '/api/flocks/';
+        var dataFactory = {};
+        dataFactory.getFlock = function(id){
+          return $http.get(FLOCK_URL_PATTERN + id + '/');
+        }
+
+      return dataFactory;
+      }
+  ])
+
 
 }).call(this);
