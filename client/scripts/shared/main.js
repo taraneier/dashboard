@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('app.controllers', []).controller('AppCtrl', [
+  angular.module('app.controllers', ['nvd3']).controller('AppCtrl', [
     '$scope', '$rootScope', function($scope, $rootScope) {
       var $window;
       $window = $(window);
@@ -74,20 +74,85 @@
         return $scope.taskRemainingCount = count;
       });
     }
-  ]).controller('DashboardCtrl', ['$scope', 'flockService',
-                          function($scope,  flockService) {
+  ]).controller('DashboardCtrl', ['$scope', 'flockService','chartService',
+                          function($scope,  flockService, chartService) {
                             $scope.flock;
                             $scope.status;
+                            $scope.sitesData;
+                            $scope.sitesOptions = {
+                              chart: {
+                                  type: 'pieChart',
+                                  height: 400,
+                                  x: function(d){ return d.label; },
+                                  y: function(d){ return d.value; },
+                                  showValues: true,
+                                  valueFormat: function(d){
+                                      return d3.format(',.f')(d);
+                                  },
+                                  transitionDuration: 1200
+                              }};
+                            $scope.eggsData;
+
+
+                            $scope.gramsData;
+                            $scope.pieOptions = {
+                              chart: {
+                                type: 'pieChart',
+                                height: 450,
+                                x: function(d){ return d.label; },
+                                y: function(d){ return d.value; },
+                                showValues: true,
+                                valueFormat: function(d){
+                                      return d3.format(',.f')(d);
+                                  },
+                                  transitionDuration: 1200
+                              }
+                            }
+
+
                             getFlock();
+                            getSites();
+                            getEggs();
+                            getGrams();
                             function getFlock() {
                               flockService.getFlock(1)
-                                  .success(function (custs) {
-                                    $scope.flock = custs;
+                                  .success(function (data) {
+                                    $scope.flock = data;
                                   })
                                   .error(function (error) {
                                     $scope.status = 'Unable to load customer data: ' + error.message;
                                   })
                             };
+
+                            function getSites() {
+                              chartService.getData('sites')
+                                  .success(function (data) {
+                                    $scope.sitesData = data;
+                                  })
+                                  .error(function (error) {
+                                    $scope.status = 'Unable to load customer data: ' + error.message;
+                                  })
+                            };
+                            function getEggs(){
+                              chartService.getData('eggs')
+                                  .success(function (data) {
+                                    $scope.eggsData = data;
+                                  })
+                                  .error(function (error) {
+                                    $scope.status = 'Unable to load customer data: ' + error.message;
+                                  })
+                            };
+                            function getGrams(){
+                              chartService.getData('grams')
+                                  .success(function (data) {
+                                    $scope.gramsData = data;
+                                  })
+                                  .error(function (error) {
+                                    $scope.status = 'Unable to load customer data: ' + error.message;
+                                  })
+                            };
+
+
 
   }]);
 

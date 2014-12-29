@@ -36,6 +36,21 @@
       return dataFactory;
       }
   ])
+  .factory('chartService',['$http','apiHost',function($http,apiHost){
+        var chartUrls = {};
+        chartUrls['sites'] = '/stats/eggsbysite';
+        chartUrls['grams'] = '/stats/gramsbybird';
+        chartUrls['eggs'] = '/stats/eggsbybird';
 
+        var chartFactory = {};
+        chartFactory.getData = function(name){
+            var url = '//' + apiHost + chartUrls[name];
+            return $http.get(url);//.success(function (data){
+              //return data;
+            //});
+        }
+        return chartFactory;
+      }
+  ])
 
 }).call(this);
