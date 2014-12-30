@@ -27,16 +27,16 @@
             <thead>
                 <tr>
                     <th><div class="th">
-                        Store Name
+                        Date
                         <span class="ti-angle-up"
-                              data-ng-click=" order('name') "
-                              data-ng-class="{active: row == 'name'}"></span>
+                              data-ng-click=" order('date') "
+                              data-ng-class="{active: row == 'date'}"></span>
                         <span class="ti-angle-down"
-                              data-ng-click=" order('-name') "
-                              data-ng-class="{active: row == '-name'}"></span>
+                              data-ng-click=" order('-date') "
+                              data-ng-class="{active: row == '-date'}"></span>
                     </div></th>
                     <th><div class="th">
-                        Price
+                        Total
                         <span class="ti-angle-up"
                               data-ng-click=" order('price') "
                               data-ng-class="{active: row == 'price'}"></span>
@@ -45,7 +45,7 @@
                               data-ng-class="{active: row == '-price'}"></span>
                     </div></th>
                     <th><div class="th">
-                        Sales (in 7 days)
+                        Faith
                         <span class="ti-angle-up"
                               data-ng-click=" order('sales') "
                               data-ng-class="{active: row == 'sales'}"></span>
@@ -54,7 +54,88 @@
                               data-ng-class="{active: row == '-sales'}"></span>
                     </div></th>
                     <th><div class="th">
-                        Rating
+                        Barbara
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Ivy
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Winona
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Della
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Ozzie
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Georgia
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Buffy
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Mabel
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Sammy
+                        <span class="ti-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="ti-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Rosie
                         <span class="ti-angle-up"
                               data-ng-click=" order('rating') "
                               data-ng-class="{active: row == 'rating'}"></span>
@@ -66,10 +147,19 @@
             </thead>
             <tbody>
                 <tr data-ng-repeat="store in currentPageStores">
-                    <td>{{store.name}}</td>
-                    <td>{{store.price}}</td>
-                    <td>{{store.sales}}</td>
-                    <td>{{store.rating}}</td>
+                    <td>{{store.date}}</td>
+                    <td>{{store.total}}</td>
+                    <td>{{store.faith}}</td>
+                    <td>{{store.barbara}}</td>
+                    <td>{{store.ivy}}</td>
+                    <td>{{store.winona}}</td>
+                    <td>{{store.della}}</td>
+                    <td>{{store.ozzie}}</td>
+                    <td>{{store.georgia}}</td>
+                    <td>{{store.buffy}}</td>
+                    <td>{{store.mabel}}</td>
+                    <td>{{store.sammy}}</td>
+                    <td>{{store.rosie}}</td>
                 </tr>
             </tbody>
         </table>

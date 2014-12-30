@@ -52,5 +52,13 @@
         return chartFactory;
       }
   ])
-
+  .factory('tableService',['$http','apiHost',function($http,apiHost) {
+          var url = '//' + apiHost + '/stats/crosstab';
+          var dataFactory = {};
+          dataFactory.getData = function(){
+              return $http.get(url);
+          }
+          return dataFactory;
+    }
+  ])
 }).call(this);
