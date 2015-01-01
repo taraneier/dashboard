@@ -82,47 +82,15 @@
             </div>
         </div>
     </div>
-    <div class="row" data-ng-controller="flotChartCtrl">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Bar Chart</h3>
-                </div>
-                <div class="panel-body">
-                    <div data-flot-chart
-                         data-data="barChart3.data"
-                         data-options="barChart3.options"
-                         style="width: 100%; height: 350px;"
-                         ></div>
-                </div>
-            </div>            
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Area Chart</h3>
-                </div>
-                <div class="panel-body">
-                    <div data-flot-chart
-                         data-data="area1.data"
-                         data-options="area1.options"
-                         style="width: 100%; height: 350px;"
-                         ></div>
-                </div>
-            </div>               
-        </div>
-    </div>
-
-
-    <div class="row" data-ng-controller="chartCtrl">
+    <div class="row">
         
         <div class="col-lg-3 col-xsm-6">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <div easypiechart options="easypiechartsm1.options" percent="easypiechartsm1.percent" class="easypiechart easypiechart-sm">
-                        <span class="pie-percent" ng-bind="easypiechartsm1.percent"></span>
+                    <div easypiechart options="percentDay.options" percent="percentDay.percent" class="easypiechart easypiechart-sm">
+                        <span class="pie-percent" ng-bind="flock.percent_day"></span>
                     </div>
-                    <p class="text-center text-muted">Bounce Rate</p>
+                    <p class="text-center text-muted">Last Day</p>
                 </div>
             </div>
         </div>
@@ -130,10 +98,10 @@
         <div class="col-lg-3 col-xsm-6">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <div easypiechart options="easypiechartsm2.options" percent="easypiechartsm2.percent" class="easypiechart easypiechart-sm">
-                        <span class="pie-percent" ng-bind="easypiechartsm2.percent"></span>
+                    <div easypiechart options="percentWeek.options" percent="percentWeek.percent" class="easypiechart easypiechart-sm">
+                        <span class="pie-percent" ng-bind="flock.percent_week"></span>
                     </div>
-                    <p class="text-center text-muted">New Visists</p>
+                    <p class="text-center text-muted">Last Week</p>
                 </div>
             </div>
         </div>
@@ -141,10 +109,10 @@
         <div class="col-lg-3 col-xsm-6">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <div easypiechart options="easypiechartsm3.options" percent="easypiechartsm3.percent" class="easypiechart easypiechart-sm">
-                        <span class="pie-percent" ng-bind="easypiechartsm3.percent"></span>
+                    <div easypiechart options="percentMonth.options" percent="percentMonth.percent" class="easypiechart easypiechart-sm">
+                        <span class="pie-percent" ng-bind="flock.percent_month"></span>
                     </div>
-                    <p class="text-center text-muted">Search Traffic</p>
+                    <p class="text-center text-muted">Last Month</p>
                 </div>
             </div>
         </div>
@@ -152,10 +120,10 @@
         <div class="col-lg-3 col-xsm-6">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <div easypiechart options="easypiechartsm4.options" percent="easypiechartsm4.percent" class="easypiechart easypiechart-sm">
-                        <span class="pie-percent" ng-bind="easypiechartsm4.percent"></span>
+                    <div easypiechart options="percentQuarter.options" percent="percentQuarter.percent" class="easypiechart easypiechart-sm">
+                        <span class="pie-percent" ng-bind="flock.percent_quarter"></span>
                     </div>
-                    <p class="text-center text-muted">Modern Browsers</p>
+                    <p class="text-center text-muted">Last Quarter</p>
                 </div>
             </div>
         </div>

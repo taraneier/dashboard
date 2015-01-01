@@ -118,6 +118,7 @@
                               flockService.getFlock(1)
                                   .success(function (data) {
                                     $scope.flock = data;
+                                    initCharts();
                                   })
                                   .error(function (error) {
                                     $scope.status = 'Unable to load customer data: ' + error.message;
@@ -152,7 +153,61 @@
                                   })
                             };
 
+      function initCharts() {
+        $scope.percentDay = {
+          percent: $scope.flock.percent_day,
+          options: {
+            animate: {
+              duration: 1000,
+              enabled: false
+            },
+            barColor: $scope.color.success,
+            lineCap: 'round',
+            size: 120,
+            lineWidth: 5
+          }
+        };
+        $scope.percentWeek = {
+          percent: $scope.flock.percent_week,
+          options: {
+            animate: {
+              duration: 1000,
+              enabled: false
+            },
+            barColor: $scope.color.info,
+            lineCap: 'round',
+            size: 120,
+            lineWidth: 5
+          }
+        };
+        $scope.percentMonth = {
+          percent: $scope.flock.percent_month,
+          options: {
+            animate: {
+              duration: 1000,
+              enabled: false
+            },
+            barColor: $scope.color.warning,
+            lineCap: 'round',
+            size: 120,
+            lineWidth: 5
+          }
+        };
+        $scope.percentQuarter = {
+          percent: $scope.flock.percent_quarter,
+          options: {
+            animate: {
+              duration: 1000,
+              enabled: false
+            },
+            barColor: $scope.color.danger,
+            lineCap: 'round',
+            size: 120,
+            lineWidth: 5
+          }
+        };
 
+      }
 
   }]);
 
