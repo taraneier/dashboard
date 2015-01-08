@@ -1,74 +1,32 @@
-<div class="page page-coopcam" data-ng-controller="CoopCtrl">
+<div class="page page-coopcam" data-ng-controller="CameraCtrl">
+
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Indoor Camera</h3>
+            <h3 class="panel-title">Cameras</h3>
         </div>
         <div class="panel-body">
-            <script language="JavaScript" type="text/javascript">
 
-function reload()
-{
-   setTimeout('reloadImg("refresh")',1000)
-};
+             <tabset justified="true" class="ui-tab">
+                        <tab heading="{{cam.name}}"  ng-repeat="cam in cameras">
+                                        <!--<script language="JavaScript" type="text/javascript">-->
 
-function reloadImg(id)
-{
-   var obj = document.getElementById(id);
-   var date = new Date();
-   obj.src = "http://dg1998.myfoscam.org:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" + Math.floor(date.getTime()/1000);
-}
+<!--function reload()-->
+<!--{-->
+   <!--setTimeout('reloadImg("{{cam.id}}")',1000)-->
+<!--};-->
 
-</script>
+<!--function reloadImg(id)-->
+<!--{-->
+   <!--var obj = document.getElementById(id);-->
+   <!--var date = new Date();-->
+   <!--obj.src = "http://{{cam.host}}/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" + Math.floor(date.getTime()/1000);-->
+<!--}-->
 
-<img src="http://dg1998.myfoscam.org:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" width="1204" name="refresh" id="refresh" onload='reload(this)' onerror='reload(this)'>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Outdoor Camera</h3>
-        </div>
-        <div class="panel-body">
-            <script language="JavaScript" type="text/javascript">
+<!--</script>-->
+                            <camera cam=cam></camera>
+                        </tab>
+                    </tabset>
 
-function oreload()
-{
-   setTimeout('reloadImg("outdoor")',1000)
-};
-
-function oreloadImg(id)
-{
-   var obj = document.getElementById(id);
-   var date = new Date();
-   obj.src = "http://dn0791.myfoscam.org:89/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" + Math.floor(date.getTime()/1000);
-}
-
-</script>
-
-<img src="http://dn0791.myfoscam.org:89/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t="  width="1204" name="outdoor" id="outdoor" onload='reload(this)' onerror='reload(this)'>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Garden Camera</h3>
-        </div>
-        <div class="panel-body">
-            <script language="JavaScript" type="text/javascript">
-
-function oreload()
-{
-   setTimeout('reloadImg("garden")',1000)
-};
-
-function oreloadImg(id)
-{
-   var obj = document.getElementById(id);
-   var date = new Date();
-   obj.src = "http://dn0791.myfoscam.org:89/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" + Math.floor(date.getTime()/1000);
-}
-
-</script>
-
-<img src="http://dn0791.myfoscam.org:89/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" width="1204" name="garden" id="garden" onload='reload(this)' onerror='reload(this)'>
         </div>
     </div>
 </div>

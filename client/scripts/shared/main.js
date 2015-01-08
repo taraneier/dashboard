@@ -76,7 +76,7 @@
     }
   ]).controller('CoopCtrl', ['$scope', function($scope) {}]).controller('NavContainerCtrl', ['$scope', function($scope) {}]).controller('NavCtrl', [
     '$scope',  function($scope) {
-      
+
     }
   ]).controller('ProdChartCtrl', ['$scope', 'flockService','chartService',
                           function($scope,  flockService, chartService) {
