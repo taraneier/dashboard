@@ -1,9 +1,9 @@
 (function() {
   'use strict';
-  angular.module('app', ['config', 'env.controllers','app.coop','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart', 'ui.tree', 'ngMap', 'ngTagsInput', 'angular-loading-bar', 'app.controllers', 'app.directives', 'app.localization', 'app.nav', 'app.ui.ctrls', 'app.ui.directives', 'app.ui.services', 'app.form.validation', 'app.ui.form.ctrls', 'app.ui.form.directives', 'app.tables', 'app.task', 'app.chart.ctrls', 'app.chart.directives', 'app.page.ctrls']).config([
+  angular.module('app', ['config', 'env.controllers','app.coop','app.flock','ngRoute', 'ngAnimate', 'ui.bootstrap', 'easypiechart', 'ui.tree', 'ngMap', 'ngTagsInput', 'angular-loading-bar', 'app.controllers', 'app.directives', 'app.localization', 'app.nav', 'app.ui.ctrls', 'app.ui.directives', 'app.ui.services', 'app.form.validation', 'app.ui.form.ctrls', 'app.ui.form.directives', 'app.tables', 'app.task', 'app.chart.ctrls', 'app.chart.directives', 'app.page.ctrls']).config([
     '$routeProvider', function($routeProvider) {
       var routes, setRoutes;
-      routes = ['dashboard', 'production/crosstab', 'production/charts', 'environment/weather','environment/astro','coop/cameras','ui/typography', 'ui/buttons', 'ui/icons', 'ui/grids', 'ui/widgets', 'ui/components', 'ui/boxes', 'ui/timeline', 'ui/nested-lists', 'ui/pricing-tables', 'ui/maps', 'tables/static', 'tables/dynamic', 'tables/responsive', 'forms/elements', 'forms/layouts', 'forms/validation', 'forms/wizard', 'charts/charts', 'charts/flot', 'charts/chartjs', 'pages/404', 'pages/500', 'pages/blank', 'pages/forgot-password', 'pages/invoice', 'pages/lock-screen', 'pages/profile', 'pages/signin', 'pages/signup', 'mail/compose', 'mail/inbox', 'mail/single', 'tasks/tasks'];
+      routes = ['dashboard', 'flock/birds', 'production/crosstab', 'production/charts', 'environment/weather','environment/astro','coop/cameras','ui/typography', 'ui/buttons', 'ui/icons', 'ui/grids', 'ui/widgets', 'ui/components', 'ui/boxes', 'ui/timeline', 'ui/nested-lists', 'ui/pricing-tables', 'ui/maps', 'tables/static', 'tables/dynamic', 'tables/responsive', 'forms/elements', 'forms/layouts', 'forms/validation', 'forms/wizard', 'charts/charts', 'charts/flot', 'charts/chartjs', 'pages/404', 'pages/500', 'pages/blank', 'pages/forgot-password', 'pages/invoice', 'pages/lock-screen', 'pages/profile', 'pages/signin', 'pages/signup', 'mail/compose', 'mail/inbox', 'mail/single', 'tasks/tasks'];
       setRoutes = function(route) {
         var config, url;
         url = '/' + route;
@@ -31,6 +31,16 @@
         var dataFactory = {};
         dataFactory.getFlock = function(id){
           return $http.get(FLOCK_URL_PATTERN + id + '/');
+        }
+
+      return dataFactory;
+      }
+  ])
+  .factory('birdService', ['$http','apiHost', function($http, apiHost){
+       var BIRD_URL_PATTERN = '//' + apiHost + '/api/birds/';
+        var dataFactory = {};
+        dataFactory.getBirds = function(){
+          return $http.get(BIRD_URL_PATTERN );
         }
 
       return dataFactory;

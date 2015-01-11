@@ -1,17 +1,27 @@
 /**
  * Created by tneier on 1/5/15.
  */
+
+
 (function() {
   'use strict';
-var app = angular.module('app.coop', [])
-    .controller('CameraCtrl', ['$scope', function($scope){
-        $scope.cameras = [
-            {name: 'Indoor',  id: 'indoor', host: 'dg1998.myfoscam.org:88'},
-            {name: 'Outdoor', id: 'outdoor',host: 'dn0791.myfoscam.org:89'},
-            {name: 'Garden',  id: 'garden', host: 'fv5036.myfoscam.org:90'}
-        ];
+var app = angular.module('app.flock', [])
+    .controller('FlockCtrl', ['$scope','apiHost','birdService', function($scope, apiHost, birdService){
+        $scope.birds;
+        $scope.apiHost = apiHost;
+        getBirds();
+        function getBirds(){
+            birdService.getBirds()
+            .success(function (data) {
+              $scope.birds = data;
+            })
+            .error(function (error) {
+              $scope.status = 'Unable to load customer data: ' + error.message;
+            })
+        }
+
     }])
-  .directive('camera',['$interval', function($interval){
+  .directive('bird',['$interval', function($interval){
 
       return{
           restrict: 'E',

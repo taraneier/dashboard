@@ -5,28 +5,11 @@
             <h3 class="panel-title">Cameras</h3>
         </div>
         <div class="panel-body">
-
              <tabset justified="true" class="ui-tab">
-                        <tab heading="{{cam.name}}"  ng-repeat="cam in cameras">
-                                        <!--<script language="JavaScript" type="text/javascript">-->
-
-<!--function reload()-->
-<!--{-->
-   <!--setTimeout('reloadImg("{{cam.id}}")',1000)-->
-<!--};-->
-
-<!--function reloadImg(id)-->
-<!--{-->
-   <!--var obj = document.getElementById(id);-->
-   <!--var date = new Date();-->
-   <!--obj.src = "http://{{cam.host}}/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=dashboard&pwd=EaM@WFmALJ28&t=" + Math.floor(date.getTime()/1000);-->
-<!--}-->
-
-<!--</script>-->
-                            <camera cam=cam></camera>
-                        </tab>
-                    </tabset>
-
+                <tab heading="{{cam.name}}"  ng-repeat="cam in cameras">
+                    <camera cam=cam></camera>
+                </tab>
+             </tabset>
         </div>
     </div>
 </div>
