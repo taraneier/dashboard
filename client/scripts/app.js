@@ -39,8 +39,11 @@
   .factory('birdService', ['$http','apiHost', function($http, apiHost){
        var BIRD_URL_PATTERN = '//' + apiHost + '/api/birds/';
         var dataFactory = {};
-        dataFactory.getBirds = function(){
-          return $http.get(BIRD_URL_PATTERN );
+        dataFactory.getBirds = function(id) {
+            if (id.size > 0) {
+                BIRD_URL_PATTERN =+  id + '/';
+            }
+            return $http.get(BIRD_URL_PATTERN);
         }
 
       return dataFactory;

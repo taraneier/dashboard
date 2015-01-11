@@ -11,7 +11,7 @@ var app = angular.module('app.flock', [])
         $scope.apiHost = apiHost;
         getBirds();
         function getBirds(){
-            birdService.getBirds()
+            birdService.getBirds('')
             .success(function (data) {
               $scope.birds = data;
             })
