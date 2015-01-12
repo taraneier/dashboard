@@ -25,7 +25,7 @@
       });
     }
   ])
-
+     
   .factory('flockService', ['$http','apiHost', function($http, apiHost){
        var FLOCK_URL_PATTERN = '//' + apiHost + '/api/flocks/';
         var dataFactory = {};
@@ -65,6 +65,9 @@
             return $http.get(url);//.success(function (data){
               //return data;
             //});
+        }
+        chartFactory.getPalette = function(){
+             return ['#5B90BF', '#A2BF8A','#ECCC87', '#AB434C', '#B58DAE','#616775','#c16069','#949fb2' ];
         }
         return chartFactory;
       }

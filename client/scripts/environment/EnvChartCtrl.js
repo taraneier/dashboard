@@ -14,7 +14,7 @@
           margin: {top: 30, right: 60, bottom: 50, left: 90},
           x: function (d, i) {return Date.parse(d[0])},
           y: function(d){return d[1]},
-          color: (d3.scale.category10().range()),
+          color: chartService.getPalette(),
           tooltipContent:(function(key, x, y, e, graph) {
 	        return '<h3>' + key + '</h3><p>' + d3.format(',.02f')(e.point[1]) + ' on ' + x + '</p>' }),
           xAxis: {axisLabel: 'Date', tickFormat: function(d){ return d3.time.format('%x')(new Date (d))}},
@@ -50,7 +50,7 @@
           margin: {top: 30, right: 60, bottom: 50, left: 90},
           x: function (d, i) {return Date.parse(d[0])},
           y: function(d){return d[1]},
-          color: (d3.scale.category10().range()),
+          color: chartService.getPalette(),
           tooltipContent:(function(key, x, y, e, graph) {
 	        return '<h3>' + key + '</h3><p>' + d3.format(',.02f')(y) + ' at ' + d3.time.format(x) + '</p>' }),
           xAxis: {axisLabel: 'Date', tickFormat: function(d){ return d3.time.format('%x')(new Date (d))}},

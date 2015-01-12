@@ -30,6 +30,9 @@
         fixedSidebar: true,
         pageTransition: $scope.pageTransitionOpts[0]
       };
+          $scope.chartPalette = [
+              '#5B90BF', '#A2BF8A','#ECCC87', '#AB434C', '#B58DAE','#616775','#c16069','#949fb2'
+          ]
       $scope.$watch('admin', function(newVal, oldVal) {
         if (newVal.menu === 'horizontal' && oldVal.menu === 'vertical') {
           $rootScope.$broadcast('nav:reset');
@@ -88,7 +91,8 @@
           margin: {top: 30, right: 60, bottom: 50, left: 90},
           x: function (d, i) {return Date.parse(d[0])},
           y: function(d){return d[1]},
-          color: (d3.scale.category10().range()),
+          //color: (d3.scale.category10().range()),
+            color:  chartService.getPalette(),
           tooltipContent:(function(key, x, y, e, graph) {
 	        return '<h3>' + key + '</h3><p>' + d3.format(',.02f')(y) + ' at ' + d3.time.format(x) + '</p>' }),
           xAxis: {axisLabel: 'Date', tickFormat: function(d){ return d3.time.format('%x')(new Date (d))}},
@@ -108,57 +112,6 @@
             .success(function (data) {
               $scope.prodData = data;
 
-              var lineChart1 = {};
-               lineChart1.data1 = [[1, 15], [2, 20], [3, 14], [4, 10], [5, 10], [6, 20], [7, 28], [8, 26], [9, 22]];
-      //lineChart1.data1 = data[0].values;
-      $scope.line1 = {};
-      $scope.line1.data = [
-        {
-          data: lineChart1.data1,
-          label: 'Average'
-        }
-      ];
-      $scope.line1.options = {
-        series: {
-          lines: {
-            show: true,
-            fill: true,
-            fillColor: {
-              colors: [
-                {
-                  opacity: 0
-                }, {
-                  opacity: 0.3
-                }
-              ]
-            }
-          },
-          points: {
-            show: true,
-            lineWidth: 2,
-            fill: true,
-            fillColor: "#ffffff",
-            symbol: "circle",
-            radius: 5
-          }
-        },
-        colors: [$scope.color.primary, $scope.color.infoAlt],
-        tooltip: true,
-        tooltipOpts: {
-          defaultTheme: false
-        },
-        grid: {
-          hoverable: true,
-          clickable: true,
-          tickColor: "#f9f9f9",
-          borderWidth: 1,
-          borderColor: "#eeeeee"
-        },
-        xaxis: {
-          ticks: [[1, 'Jan.'], [2, 'Feb.'], [3, 'Mar.'], [4, 'Apr.'], [5, 'May'], [6, 'June'], [7, 'July'], [8, 'Aug.'], [9, 'Sept.'], [10, 'Oct.'], [11, 'Nov.'], [12, 'Dec.']]
-        }
-      };
-              //initCharts();
             })
             .error(function (error) {
               $scope.status = 'Unable to load customer data: ' + error.message;
@@ -197,7 +150,8 @@
           valueFormat: function(d){
                 return d3.format(',.f')(d);
             },
-            transitionDuration: 1200
+          transitionDuration: 1200,
+            color: chartService.getPalette()
         }
       }
 
