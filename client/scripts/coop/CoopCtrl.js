@@ -34,18 +34,18 @@ var app = angular.module('app.coop', [])
             $scope.lightChart1.set(500);
 
             $scope.t0 = new Gauge(document.getElementById('t0')).setOptions(gaugeOpts);
-            $scope.t0.maxValue = 80;
+            $scope.t0.maxValue = 120;
             $scope.t0.animationSpeed = 42;
             $scope.t0.set(50);
 
             $scope.t1 = new Gauge(document.getElementById('t1')).setOptions(gaugeOpts);
-            $scope.t1.maxValue = 80;
+            $scope.t1.maxValue = 120;
             $scope.t1.animationSpeed = 42;
             $scope.t1.set(50);
 
 
             $scope.t2 = new Gauge(document.getElementById('t2')).setOptions(gaugeOpts);
-            $scope.t2.maxValue = 80;
+            $scope.t2.maxValue = 120;
             $scope.t2.animationSpeed = 42;
             $scope.t2.set(50);
 
@@ -53,12 +53,12 @@ var app = angular.module('app.coop', [])
 
         $interval(function(){
             getMonLatest();
-        },5000);
+        },500);
         function getMonLatest() {
             monitorService.getLatest(1)
             .success(function (data) {
               $scope.monitor = data;
-                if (data.door){
+                if (!data.door){
                     $scope.monitor.door = "Closed";
                 } else {
                     $scope.monitor.door = "Open";
