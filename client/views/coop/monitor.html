@@ -1,0 +1,87 @@
+<div class="page" data-ng-controller="MonitorCtrl">
+    <div class="row text-center">
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Humidity</h3>
+                </div>
+                <div class="panel-body text-center">
+
+                    <div easypiechart options="humidity.options" percent="humidity.percent"
+                         class="easypiechart easypiechart-sm">
+                        <span class="pie-percent" ng-bind="monitor.hum"></span>
+                    </div>
+                    <p class="text-center text-muted"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Light</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <canvas id="light1"></canvas>
+                </div>
+                <p class="text-center text-muted">{{monitor.lum}}</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Door</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <h1>{{monitor.door}}</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row text-center">
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Indoor Temp</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <div class="panel-body text-center">
+                        <canvas id="t0"></canvas>
+                    </div>
+                    <p class="text-center text-muted">{{monitor.t0}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Outdoor Temp</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <div class="panel-body text-center">
+                        <canvas id="t1"></canvas>
+                    </div>
+                    <p class="text-center text-muted">{{monitor.t1}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xsm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Nest Box Temp</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <div class="panel-body text-center">
+                        <canvas id="t2"></canvas>
+                    </div>
+                    <p class="text-center text-muted">{{monitor.t2}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
