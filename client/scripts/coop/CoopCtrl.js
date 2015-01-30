@@ -53,7 +53,7 @@ var app = angular.module('app.coop', [])
 
         $interval(function(){
             getMonLatest();
-        },1000);
+        },5000);
         function getMonLatest() {
             monitorService.getLatest(1)
             .success(function (data) {
