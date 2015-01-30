@@ -58,15 +58,15 @@ var app = angular.module('app.coop', [])
             monitorService.getLatest(1)
             .success(function (data) {
               $scope.monitor = data;
-                    if (data.door){
-                        $scope.monitor.door = "Closed";
-                    } else {
-                        $scope.monitor.door = "Open";
-                    }
-                $scope.lightChart1.set($scope.monitor.lum);
-                    $scope.t0.set($scope.monitor.t0);
-                    $scope.t1.set($scope.monitor.t1);
-                    $scope.t2.set($scope.monitor.t2);
+                if (data.door){
+                    $scope.monitor.door = "Closed";
+                } else {
+                    $scope.monitor.door = "Open";
+                }
+                $scope.lightChart1.set(~~$scope.monitor.lum);
+                $scope.t0.set(~~$scope.monitor.t0);
+                $scope.t1.set(~~$scope.monitor.t1);
+                $scope.t2.set(~~$scope.monitor.t2);
                 initCharts();
             })
             .error(function (error) {
