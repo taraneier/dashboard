@@ -29,7 +29,7 @@
         }
       };
       getData();
-      function getData() {
+      function getData(){
         chartService.getData('astro')
             .success(function (data) {
               $scope.astroData = data;
