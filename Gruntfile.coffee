@@ -261,6 +261,7 @@ module.exports = (grunt) ->
                         "bower_components/weather-icons/font/*"
                         "bower_components/ionicons/fonts/*"
                         "bower_components/ionicons/css/*"
+                        "bower_components/nvd3/*"
                         "fonts/**/*"
                         "i18n/**/*"
                         "images/**/*"
