@@ -26,9 +26,7 @@
 
   "dependencies": {
     "express": "~3.4.4",
-    "grunt-cli" : "~0.1.13"
-  },
-  "devDependencies": {
+    "grunt-cli" : "~0.1.13",
     "bower": "1.3.8",
     "grunt": "~0.4.5",
     "connect-livereload": "~0.5.2",
@@ -52,6 +50,11 @@
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "~1.0.0",
     "time-grunt": "~1.0.0"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "postinstall": "export HOME=/var/lib/openshift/548e2574fcf933b02b00024c/app-root/runtime/repo; ./node_modules/bower/bin/bower install"
   },
   "bundleDependencies": [],
 
