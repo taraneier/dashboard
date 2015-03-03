@@ -24,16 +24,16 @@ export GEM_HOME=$OPENSHIFT_DATA_DIR/gems
 OLD_HOME=$HOME
 
 ##########
-echo "INFO: Running 'bower install'"
+echo "INFO: Running 'bower install' from .openshift/action_hooks/build"
 cd $OPENSHIFT_REPO_DIR
 export HOME=$OPENSHIFT_REPO_DIR
 node_modules/bower/bin/bower install
 
 ##########
-echo "INFO: Running 'grunt build'"
+echo "INFO: Running 'grunt build' from .openshift/action_hooks/build"
 cd "${OPENSHIFT_REPO_DIR}";
 node_modules/grunt-cli/bin/grunt build
-echo "INFO: Running 'grunt server'"
+echo "INFO: Running 'grunt server' from .openshift/action_hooks/build"
 node_modules/grunt-cli/bin/grunt server
 
 #########
