@@ -54,7 +54,7 @@
   "devDependencies": {
   },
   "scripts": {
-    "postinstall": "export HOME=/var/lib/openshift/548e2574fcf933b02b00024c/app-root/runtime/repo; ./node_modules/bower/bin/bower install"
+//    "postinstall": "export HOME=/var/lib/openshift/548e2574fcf933b02b00024c/app-root/runtime/repo; ./node_modules/bower/bin/bower install"
   },
   "bundleDependencies": [],
 
